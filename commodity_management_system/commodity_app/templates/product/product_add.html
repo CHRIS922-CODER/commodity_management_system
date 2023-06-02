@@ -1,0 +1,27 @@
+{% extends  'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2>Add Product</h2>
+    <form method="POST" action="">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="id_name">Name:</label>
+        {{ form.name }}
+      </div>
+      <div class="form-group">
+        <label for="id_quantity">Quantity:</label>
+        {{ form.quantity }}
+      </div>
+      <div class="form-group">
+        <label for="id_category">Category:</label>
+        {{ form.category }}
+      </div>
+      <div class="form-group">
+        <label for="id_category">Reorder_level:</label>
+        {{ form.reorder_level }}
+      </div>
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </div>
+{% endblock %}

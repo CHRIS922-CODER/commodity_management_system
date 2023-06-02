@@ -1,0 +1,45 @@
+{% extends 'base_items.html' %}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 bg-light sidebar">
+            <h2>Search</h2>
+            <form action="" method="POST">
+                {{ productFilter.form }}
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary mt-3">Export/Filter</button>
+            </form>
+        </div>
+
+        <!-- Results -->
+        <div class="col-md-9">
+            <h2>Search Results</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Issuance ID</th>
+                        <th>Category</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <!-- Add more table headers as needed -->
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        {% for product in products %}
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.quantity }}</td>
+                        <td>{{ product.category }}</td>
+                        <td>{{ product.reorder_level }}</td>
+                         
+                        {% endfor %}
+
+                        <!-- Add more table cells for each result -->
+                    
+                    <!-- Add more table rows for each result -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

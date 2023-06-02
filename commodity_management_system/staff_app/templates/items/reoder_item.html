@@ -1,0 +1,22 @@
+{% extends 'base_items.html' %}
+<div class="container">
+    <h2>Update Reorder Level</h2>
+    <form action="{% url 'update_reorder_level' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="product">Product:</label>
+            <select class="form-control" id="product" name="product">
+                {% for product in products %}
+                <option value="{{ product.name }}">{ product.name}</option>
+                {% endfor %}
+
+                <!-- Add more options for each product in your system -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="reorder-level">Reorder Level:</label>
+            <input type="number" class="form-control" id="reorder-level" name="reorder_level" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
