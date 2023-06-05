@@ -13,7 +13,7 @@
 /* Sidebar */
 .sidebar {
   background-color: aqua; /* Updated sidebar background color */
-  padding: 20px;
+  padding: 10px;
 }
 
 .tab {
@@ -108,4 +108,7 @@
   width:50px;
   height:50px;
   border-radius:50%;
+}
+.container-fluid .row{
+  margin-left:0;
 }

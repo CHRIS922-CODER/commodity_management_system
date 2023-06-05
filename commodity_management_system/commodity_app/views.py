@@ -45,7 +45,7 @@ def product_edit(request,id):
             return redirect("product_list")
     else :
         form = ProductForm(instance=product)
-        return render(request,'product/product_edit.html',{'product':product})
+        return render(request,'product/product_edit.html',{'product':product,'form':form})
     
 def product_delete(request,id):
     product = Product.objects.get(id=id)
@@ -180,14 +180,15 @@ def issuance_list(request):
 
 def issuance_edit(request,id):
     issuance = Issuance.objects.get(id=id)
-    if request.form == 'POST':
+    if request.method == 'POST':
         form = IssuanceForm(request.POST,instance=issuance)
         if form.is_valid():
             form.save()
             return redirect("issuance_list")
     else:
         form = IssuanceForm(instance=issuance)
-        return render(request,'issuance/issuance_edit.html',{'form':form})
+        context = {'form':form}
+        return render(request,'issuance/issuance_edit.html',context)
 def issuance_delete(request,id):
     issuance = Issuance.objects.get(id=id)
     issuance.delete()
